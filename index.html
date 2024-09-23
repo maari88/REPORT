@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Звіти з лабораторних робіт</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+        }
+        .header {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .profile {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .lab-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 10px;
+        }
+        .container {
+            display: flex;
+            margin-top: 20px;
+            width: 80%;
+        }
+        .left-menu {
+            width: 20%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .content {
+            width: 60%;
+            border: 1px solid #000;
+            padding: 20px;
+            height: 300px;
+        }
+        button {
+            padding: 10px;
+            cursor: pointer;
+            border: 1px solid #000;
+            background-color: #f0f0f0;
+        }
+        .top-right {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            text-align: center;
+        }
+        .top-right img {
+            max-width: 150px;
+            
+        }
+        .content {
+    width: 60%;
+    border: 1px solid #000;
+    padding: 20px;
+    height: 300px;
+    overflow-y: scroll; /* Додаємо прокручування по вертикалі */
+}
+
+.content img {
+    max-width: 350px; /* Зменшуємо розмір зображень */
+    margin: 5px; /* Відступи між зображеннями */
+}
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Звіти з лабораторних робіт з дисципліни </h1>
+        <h1>"Інтернет-технології та проєктування WEB-застосувань"</h1>
+    </div>
+
+    <div class="profile">
+        <h3>Студентка групи ІС-32<br>Аралова Марія Вікторівна<h3>
+    </div>
+
+    <div class="lab-buttons">
+        <button onclick="selectLab(1)">Лабораторна робота №1</button>
+        <button onclick="selectLab(2)">Лабораторна робота №2</button>
+        <button onclick="selectLab(3)">Лабораторна робота №3</button>
+        <button onclick="selectLab(4)">Лабораторна робота №4</button>
+        <button onclick="selectLab(5)">Лабораторна робота №5</button>
+        <button onclick="selectLab(6)">Лабораторна робота №6</button>
+        <button onclick="selectLab(7)">Лабораторна робота №7</button>
+        <button onclick="selectLab(8)">Лабораторна робота №8</button>
+        <button onclick="selectLab(9)">Лабораторна робота №9</button>
+    </div>
+
+    <div class="container">
+        <div class="left-menu">
+            <button onclick="loadContent('Опис предметного середовища')">Опис предметного середовища</button>
+            <button onclick="loadContent('Тема, мета, місцерозташування лабораторної')">Тема, мета, місцерозташування лабораторної</button>
+            <button onclick="loadContent('Структура документа')">Структура документа</button>
+            <button onclick="loadContent('Висновок')">Висновок</button>
+        </div>
+
+        <div class="content" id="content">
+            <p>Тут буде відображатися інформація про лабораторні роботи або інші деталі.</p>
+        </div>
+    </div>
+
+    <div class="top-right">
+        <img src="Maria_Ya.jpg" alt="Фото профілю">
+    </div>
+
+    <script>
+        let selectedLab = 1;  // за замовчуванням вибрана лабораторна №1
+
+        const labsData = {
+            1: {
+                description: `Користувач має можливість переглядати список послуг, прайс, контакти, 
+місцезнаходження майстерні (Google maps), фото інструменту до/після заточки. 
+Адміністратор має можливість змінювати/додавати/видаляти всі перелічені компоненти сайту. 
+Для зручності на сайті присутній приємний інтерфейс.`,
+        goal: `<b>Тема:</b> СТРУКТУРА HTML-ДОКУМЕНТА. ВИБІР ПРЕДМЕТНОЇ ГАЛУЗІ. РОБОТА З ПОСИЛАННЯМИ, ТАБЛИЦЯМИ, 
+ЗОБРАЖЕННЯМИ, СПИСКАМИ в HTML-ДОКУМЕНТІ. <br>
+<b>Мета:</b>  придбати практичні навички роботи з HTML-документом, таблицями, зображеннями, посиланнями, списками, 
+формами. Створити шаблон звітного HTML-документа для відображення результатів роботи всіх лабораторних робіт.
+<br> <b>Місцерозсташування:</b> <a href = "https://maari88.github.io/WEB_PROJECT/">Перейти до проекту</a>`,
+        structure: `<img src="LB1_1.png" alt="Фото 1">, <img src="LB1_2.png" alt="Фото 2">, <img src="LB1_3.png" alt="Фото 3">, <img src="LB1_4.png" alt="Фото 4">`,
+        conclusion: `В ході виконання лабораторної роботи №1 я ознайомилася з основними елементами структури HTML-документа. Розглянула, як правильно використовувати теги для створення заголовків, параграфів, списків, таблиць та посилань.
+Я навчилася вставляти зображення та створювати навігаційні посилання, що є важливими аспектами в веб-дизайні. Впровадження таблиць дало можливість структурувати інформацію та представляти дані у зручному вигляді.
+Завдяки практичному виконанню завдання я отримала цінний досвід у створенні шаблону HTML-документа, який можна використовувати для відображення результатів роботи всіх лабораторних робіт. Це допоможе мені надалі ефективніше працювати з HTML і реалізовувати свої ідеї в веб-розробці.`
+            },
+            2: {
+                description: 'Опис предметного середовища для лабораторної роботи №2.',
+                goal: 'Тема, мета і місцерозташування лабораторної роботи №2.',
+                structure: 'Структура документа для лабораторної роботи №2.',
+                conclusion: 'Висновок для лабораторної роботи №2.'
+            },
+            3: {
+                description: 'Опис предметного середовища для лабораторної роботи №3.',
+                goal: 'Тема, мета і місцерозташування лабораторної роботи №3.',
+                structure: 'Структура документа для лабораторної роботи №3.',
+                conclusion: 'Висновок для лабораторної роботи №3.'
+            },
+           
+        };
+
+        function selectLab(labNumber) {
+            selectedLab = labNumber;
+            const content = document.getElementById('content');
+            content.innerHTML = `<h2>Лабораторна робота №${labNumber}</h2><p>Інформація про лабораторну роботу №${labNumber}.</p>`;
+        }
+
+        function loadContent(contentType) {
+            const content = document.getElementById('content');
+            let labData = labsData[selectedLab];
+            let text;
+
+            switch (contentType) {
+                case 'Опис предметного середовища':
+                    text = labData.description;
+                    break;
+                case 'Тема, мета, місцерозташування лабораторної':
+                    text = labData.goal;
+                    break;
+                case 'Структура документа':
+                    text = labData.structure;
+                    break;
+                case 'Висновок':
+                    text = labData.conclusion;
+                    break;
+                default:
+                    text = 'Невідомий вибір.';
+                    break;
+            }
+
+            content.innerHTML = `<h2>${contentType}</h2><p>${text}</p>`;
+        }
+    </script>
+
+</body>
+</html>
