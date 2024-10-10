@@ -71,46 +71,28 @@
         <h1>Звіти з лабораторних робіт з дисципліни </h1>
         <h1>"Інтернет-технології та проєктування WEB-застосувань"</h1>
     </div>
-
+    
     <div class="profile">
         <h3>Студентка групи ІС-32<br>Аралова Марія Вікторівна<h3>
     </div>
-
-    <div class="lab-buttons">
-        <button onclick="selectLab(1)">Лабораторна робота №1</button>
-        <button onclick="selectLab(2)">Лабораторна робота №2</button>
-        <button onclick="selectLab(3)">Лабораторна робота №3</button>
-        <button onclick="selectLab(4)">Лабораторна робота №4</button>
-        <button onclick="selectLab(5)">Лабораторна робота №5</button>
-        <button onclick="selectLab(6)">Лабораторна робота №6</button>
-        <button onclick="selectLab(7)">Лабораторна робота №7</button>
-        <button onclick="selectLab(8)">Лабораторна робота №8</button>
-        <button onclick="selectLab(9)">Лабораторна робота №9</button>
-    </div>
-
+    
+    <div class="lab-buttons" id="lab-buttons"></div>
+    
     <div class="container">
-        <div class="left-menu" id="left-menu">
-            <button onclick="loadContent('Опис предметного середовища')">Опис предметного середовища</button>
-            <button onclick="loadContent('Тема, мета, місцерозташування лабораторної')">Тема, мета, місцерозташування лабораторної</button>
-            <button onclick="loadContent('Структура документа')">Структура документа</button>
-            <button onclick="loadContent('Висновок')">Висновок</button>
-            <button onclick="loadContent('HTML-код таблиць')">HTML-код таблиць</button>
-            <button onclick="loadContent('HTML-код форми')">HTML-код форми</button>
-            <button onclick="loadContent('HTML-код зображення')">HTML-код зображення</button>
-        </div>
-
+        <div class="left-menu" id="left-menu"></div>
+    
         <div class="content" id="content">
             <p>Тут буде відображатися інформація про лабораторні роботи або інші деталі.</p>
         </div>
     </div>
-
+    
     <div class="top-right">
         <img src="Maria_Ya.jpg" alt="Фото профілю">
     </div>
-
+    
     <script>
         let selectedLab = 1; // За замовчуванням вибрана лабораторна №1
-
+    
         const labsData = {
             1: {
                 'Опис предметного середовища': `Користувач має можливість переглядати список послуг, прайс, контакти, місцезнаходження майстерні (Google maps), фото інструменту до/після заточки. Адміністратор має можливість змінювати/додавати/видаляти всі перелічені компоненти сайту. 
@@ -218,49 +200,68 @@
                   підтримки та масштабованість стилів у великих проєктах. Я задоволена результатами своєї роботи, 
                   оскільки тепер можу створювати більш елегантні та функціональні веб-інтерфейси, використовуючи 
                   різноманітні можливості каскадних таблиць стилів.`
+            },
+            3: {
+                'Тема, мета, місцерозташування сайту, звіту': `<b>Тема:</b>  ВЕРСТКА HTML-ДОКУМЕНТУ. БЛОКОВА ВЕРСТКА.  ВЕРСТКА ЗАСОБАМИ CSS та FLEXBOX.<br>
+<b>Мета:</b> ⎯придбати практичні навички роботи  верстки сторінок засобами CSS, верстки на основі плаваючих елементів, з’ясувати переваги та недоліки типів макетів веб-сторінок <br>
+⎯придбати практичні навички роботи  верстки сторінок засобами CSS та FLEXBOX   
+<br><b>Місцерозсташування:</b> <a href = "https://maari88.github.io/WEB_PROJECT/">Перейти до веб-застосунку</a> <br>
+<a href = "https://maari88.github.io/LB3_T2/">Перейти до проекту 2</a> <br>
+<a href = "https://maari88.github.io/LB3_T3/">Перейти до проекту 3</a> <br>
+<a href = "https://github.com/maari88/WEB_PROJECT">Перейти до репозиторію веб-застосунку</a> <br>
+<a href = "https://github.com/maari88/LB3_T2">Перейти до репозиторію проекту 2</a> <br>
+<a href = "https://github.com/maari88/LB3_T3">Перейти до репозиторію проекту 3</a>
+`,
+                'Завдання №1': ``
             }
+            
         };
-
+    
         window.onload = function() {
+            renderLabButtons();
             selectLab(1); // Показати першу лабораторну за замовчуванням
         };
-
+    
+        function renderLabButtons() {
+            const labButtonsContainer = document.getElementById('lab-buttons');
+            labButtonsContainer.innerHTML = ''; // Очищення контейнера
+    
+            Object.keys(labsData).forEach(labNumber => {
+                let button = document.createElement('button');
+                button.innerHTML = `Лабораторна робота №${labNumber}`;
+                button.onclick = () => selectLab(labNumber);
+                labButtonsContainer.appendChild(button);
+            });
+        }
+    
         function selectLab(labNumber) {
             selectedLab = labNumber;
             const content = document.getElementById('content');
             const leftMenu = document.getElementById('left-menu');
             
             content.innerHTML = `<h2>Лабораторна робота №${labNumber}</h2><p>Інформація про лабораторну роботу №${labNumber}.</p>`;
-
+    
             // Очищуємо меню
             leftMenu.innerHTML = '';
-
-            if (labNumber === 1) {
-                leftMenu.innerHTML = `
-                    <button onclick="loadContent('Опис предметного середовища')">Опис предметного середовища</button>
-                    <button onclick="loadContent('Тема, мета, місцерозташування лабораторної')">Тема, мета, місцерозташування лабораторної</button>
-                    <button onclick="loadContent('Структура документа')">Структура документа</button>
-                    <button onclick="loadContent('Висновок')">Висновок</button>
-                    <button onclick="loadContent('HTML-код таблиць')">HTML-код таблиць</button>
-                    <button onclick="loadContent('HTML-код форми')">HTML-код форми</button>
-                    <button onclick="loadContent('HTML-код зображення')">HTML-код зображення</button>
-                `;
-            } else if (labNumber === 2) {
-                const buttons = labsData[2];
-                for (let key in buttons) {
-                    leftMenu.innerHTML += `<button onclick="loadContent('${key}')">${key}</button>`;
-                }
-            }
+    
+            // Генерація кнопок для кожного пункту меню залежно від вибраної лабораторної
+            let labData = labsData[labNumber];
+            Object.keys(labData).forEach(key => {
+                let button = document.createElement('button');
+                button.innerHTML = key;
+                button.onclick = () => loadContent(key);
+                leftMenu.appendChild(button);
+            });
         }
-
+    
         function loadContent(contentType) {
             const content = document.getElementById('content');
             let labData = labsData[selectedLab];
             let text = labData[contentType] || 'Текст не знайдено.';
-            
+    
             content.innerHTML = `<h2>${contentType}</h2><p>${text}</p>`;
         }
     </script>
-
+    
 </body>
 </html>
