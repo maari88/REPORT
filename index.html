@@ -1564,11 +1564,83 @@ console.log(filterArray([50.5,60,34,99], 50));
                 'Завдання №4':`
                 Лістинг коду: <br>
                 <pre><code>
-                
+                function createArray(size){
+    const arr = [];
+
+    for(let i=0; i < size; i++){
+            arr.push(Math.floor(Math.random()*100));
+    }
+    return arr;
+}
+
+function findMaxElement(arr){
+    let maxElement = null;
+
+    for (let i = 0; i < arr.length; i++){
+        if(arr[i]%2 === 0 && (maxElement === null || arr[i] > maxElement)){
+            maxElement = arr[i];
+        }
+    }
+    return maxElement;
+}
+
+function findMinElement(arr){
+    let minElement = arr[0];
+
+    for (let i = 2; i < arr.length; i = i+2){
+        if(arr[i] < minElement){
+            minElement = arr[i];
+        }
+    }
+    return minElement;
+}
+
+function swapElements(arr, maxElement, minElement){
+    const maxIndex = arr.indexOf(maxElement);
+    const minIndex = arr.indexOf(minElement);
+
+    if(maxIndex !== -1 && minIndex !== -1 ){
+        [arr[maxIndex],arr[minIndex]] = [arr[minIndex],arr[maxIndex]];
+    }
+    return arr;
+}
+
+function insertionSort(arr) {
+    for (let i = 1; i < arr.length; i++) {
+        let key = arr[i];
+        let j = i - 1;
+        while (j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j];
+            j = j - 1;
+        }
+        arr[j + 1] = key;
+    }
+    return arr;
+}
+
+
+
+const size = parseInt(prompt("Введіть кількість елементів масиву:"));
+const array = createArray(size);
+console.log("Вхідний масив", array);
+
+const maxElement = findMaxElement(array);
+const minElement = findMinElement(array);
+
+console.log("Максимальний серед парних елементів:", maxElement);
+console.log("Мінімальний серед елементів з парними індексами:", minElement);
+
+const swappedArray = swapElements(array, maxElement, minElement);
+console.log("Масив після заміни:", swappedArray);
+
+const sortedArray = insertionSort([...swappedArray]);
+console.log("Масив після сортування:", sortedArray);
                 </code></pre>
                 <br>
                 Результат виконання: <br>
-                <img src="LB5_1.png" alt="Фото 2"><br> `,
+                <img src="LB5_4.png" alt="Фото 2"><br> 
+                <img src="LB5_5.png" alt="Фото 2"><br> 
+                `,
 
 
 
@@ -1579,12 +1651,53 @@ console.log(filterArray([50.5,60,34,99], 50));
                 'Завдання №5':` 
                 Лістинг коду: <br>
                 <pre><code>
-                
+                function validateForm(){
+    const name = document.getElementById("name").value;
+    const age = document.getElementById("age").value;
+    const weight = document.getElementById("weight").value;
+    const birthDate = document.getElementById("birthDate").value;
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
+    const errorMessage = document.getElementById("errorMessage");
+
+    let errors = [];
+
+    if(!Number.isInteger(Number(age))){
+        errors.push("Вік повинен бути цілим числом");
+    }
+
+    if(isNaN(weight) || weight <= 0){
+        errors.push("Вага повинна бути цілим числом");
+    }
+
+    const datePattern = /^\d{2}\.\d{2}\.\d{4}$/;
+    if(!datePattern.test(birthDate)){
+        errors.push("Дата повинна бути у форматі DD.MM.YYYY");
+    }
+
+    if (password !== confirmPassword) {
+        errors.push("Паролі не співпадають");
+    }
+
+    if(errors.length > 0){
+        errorMessage.innerHTML = errors.join("<br>");
+        return false;
+    }
+
+    errorMessage.innerHTML = "";
+    return true;
+    
+}
                 </code></pre>
                 <br>
                 Результат виконання: <br>
-                <img src="LB5_1.png" alt="Фото 2"><br>`,
-                'Висновки':` `,
+                <img src="LB5_6.png" alt="Фото 2"><br>`,
+
+
+
+
+
+                'Висновки':`Усі завдання були цікавими та дали можливість попрацювати з різними аспектами веб-розробки та програмування. Ми розглянули різні методи валідації даних у формах, опрацьовували маніпуляції з масивами, алгоритми сортування, та реалізували коректну перевірку чисел і паролів. Кожен із цих кроків допоміг поглибити знання у використанні JavaScript, HTML та його можливостей для створення інтерактивних і функціональних форм. Всі задачі сприяли тому, щоб краще розуміти, як валідувати введені дані користувачів і забезпечувати коректність результатів на практиці. `,
              }
             
         };
