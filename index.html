@@ -1698,7 +1698,324 @@ console.log("Масив після сортування:", sortedArray);
 
 
                 'Висновки':`Усі завдання були цікавими та дали можливість попрацювати з різними аспектами веб-розробки та програмування. Ми розглянули різні методи валідації даних у формах, опрацьовували маніпуляції з масивами, алгоритми сортування, та реалізували коректну перевірку чисел і паролів. Кожен із цих кроків допоміг поглибити знання у використанні JavaScript, HTML та його можливостей для створення інтерактивних і функціональних форм. Всі задачі сприяли тому, щоб краще розуміти, як валідувати введені дані користувачів і забезпечувати коректність результатів на практиці. `,
-             }
+             },
+         6: {
+                'Тема, мета, місцерозташування сайту, звіту': `<b>Тема:  ОБ'ЄКТ. МЕТОДИ ОБ'ЄКТА. МАСИВ ОБ'ЄКТІВ. ДЕСТРУКТУРИЗАЦІЯ ОБ'ЄКТІВ. CALLBACK. СТРІЛОЧНІ ФУНКЦІЇ. СТРІЛОЧНІ ФУНКЦІЇ ЯК КОЛБЕКИ
+                    </b> <br>
+ 
+Мета:ридбати практичні навички роботи з об'єктами. Методи об'єкта.. Callback. Стрілочні функції. Стрілочні функції як колбеки​.
+.  Реалізація програм засовами мови JAVASCRIPT
+<br><b>Місцерозсташування:</b> <a href = "https://maari88.github.io/WEB_PROJECT/">Перейти до веб-застосунку</a> <br>
+<a href = "https://github.com/maari88/WEB_PROJECT">Перейти до репозиторію веб-застосунку</a> <br>
+<a href = "https://maari88.github.io/LB6/">Перейти до лабораторної роботи</a> <br>
+<a href = "https://github.com/maari88/LB6">Перейти до репозиторію лабораторної роботи</a>`,
+
+
+
+
+
+
+
+
+
+
+                'Завдання №1':`Лістинг коду: <br>
+                <pre><code>
+                    //Завдання №1
+        function createProduct(obj, callback){
+            obj.id = Date.now();
+
+            callback(obj);
+        }
+
+        function logProduct(product){
+            console.log('Product:', product);
+        }
+
+        function logTotalPrice(product){
+            if(product.price && product.quantity){
+                const totalPrice = product.price * product.quantity;
+                console.log(Total price for {product.name}: {totalPrice});
+            }
+            else {
+                console.log(There is no price/quantity defined);
+            }
+        }
+
+        const Product1 = {
+            name: 'Laptop',
+            price: 1000,
+            quantity: 2
+        };
+
+        createProduct(Product1, logProduct);
+        createProduct(Product1, logTotalPrice);
+
+                </code></pre>
+                <br>
+                Результат виконання: <br>
+                <img src="LB6_1.png" alt="Фото"><br>`,
+
+
+
+
+
+
+
+
+
+                
+                'Завдання №3':`Лістинг коду: <br>
+                <pre><code>
+                    const medicines = {
+        Агалгін: new Date("2022-05-01"),
+        Ношпа: new Date("2025-07-02"),
+        Альфахолін: new Date("2024-12-21"),
+        Аспірин: new Date("2022-08-15"),
+        Аспаркам: new Date("2024-04-18"),
+        };
+
+        const today = new Date();
+
+        const validMedicines = Object.entries(medicines)
+        .filter(([name, expiryDate]) => expiryDate > today)
+        .sort(([, expiryDateA], [, expiryDateB]) => expiryDateA - expiryDateB)
+        .map(([name]) => name);
+
+        console.log(validMedicines);
+
+        //Завдання №5
+        const fruits = [
+        { name: "apple", price: 200 },
+        { name: "orange", price: 300 },
+        { name: "grapes", price: 750 },
+        ];
+
+        const applyDiscountAndAddId = (arr) => {
+            return arr.map((fruit,index) => ({
+                ...fruit,
+                price: fruit.price * 0.8,
+                id: index + 1,
+            }))
+        }
+
+        const updatedFruits = applyDiscountAndAddId(fruits);
+        console.log('Updated fruits:', updatedFruits);
+                </code></pre>
+                <br>
+                Результат виконання: <br>
+                <img src="LB6_2.png" alt="Фото"><br>`,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+                'Завдання №5':`Лістинг коду: <br>
+                <pre><code>
+                    //Завдання №5
+        const fruits = [
+        { name: "apple", price: 200 },
+        { name: "orange", price: 300 },
+        { name: "grapes", price: 750 },
+        ];
+
+        const applyDiscountAndAddId = (arr) => {
+            return arr.map((fruit,index) => ({
+                ...fruit,
+                price: fruit.price * 0.8,
+                id: index + 1,
+            }))
+        }
+
+        const updatedFruits = applyDiscountAndAddId(fruits);
+        console.log('Updated fruits:', updatedFruits);
+                </code></pre>
+                <br>
+                Результат виконання: <br>
+                <img src="LB6_3.png" alt="Фото"><br>`,
+
+
+
+
+
+
+
+
+
+
+
+
+                
+                'Завдання №7':`Лістинг коду: <br>
+                <pre><code>
+                    //Завдання №7
+        class Client {
+            constructor(login, email){
+                this.#login = login;
+                this.#email = email;
+            }
+
+            #login;
+            #email;
+
+            get login(){
+                return this.#login;
+            }
+
+            set login(newLogin){
+                if(newLogin){
+                    this.#login = newLogin;
+                }
+                else {
+                    console.error("Login cannot be empty");
+                }
+            }
+
+            get email(){
+                return this.#email;
+            }
+
+            set email(newEmail){
+                if(newEmail.includes("@")){
+                    this.#email = newEmail;
+                }
+                else{
+                    console.error("Invalid email");
+                }
+            }
+            
+        }
+
+        const client = new Client("user123", "user@example.com");
+
+        console.log(client.login);  
+        console.log(client.email);  
+
+        client.login = "newUser";   
+        console.log(client.login);  
+
+        client.email = "new@example.com"; 
+        console.log(client.email);  
+                </code></pre>
+                <br>
+                Результат виконання: <br>
+                <img src="LB6_4.png" alt="Фото"><br>`,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+                'Завдання №9':`Лістинг коду: <br>
+                <pre><code>
+                    const tweets = [
+    { id: "000", likes: 5, tags: ["js", "nodejs"] },
+    { id: "001", likes: 2, tags: ["html", "css"] },
+    { id: "002", likes: 17, tags: ["html", "js", "nodejs"] },
+    { id: "003", likes: 8, tags: ["css", "react"] },
+    { id: "004", likes: 0, tags: ["js", "nodejs", "react"] },
+    ];
+
+    const countTags = (tweets) => {
+        return tweets
+        .flatMap(tweet => tweet.tags)
+        .reduce((acc,tag) => {
+            acc[tag] = (acc[tag] || 0) + 1;
+            return acc;
+        }, {});
+    }
+    const tagCounts = countTags(tweets);
+    console.log(tagCounts);
+                </code></pre>
+                <br>
+                Результат виконання: <br>
+                <img src="LB6_5.png" alt="Фото"><br>`,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+                'Завдання №10':`Лістинг коду: <br>
+                <pre><code>
+                    //Завдання №10
+    function checkBrackets(str){
+        const stack = [];
+
+        const brackets = {
+            '(': ')',
+            '{': '}',
+            '[': ']'
+        };
+
+        for(let char of str){
+            if(brackets[char]){
+                stack.push(char);
+            }
+            else if(Object.values(brackets).includes(char)){
+            if(stack.length === 0  || brackets[stack.pop()] !== char){
+                return false;
+            }
+        }
+        }
+        return stack.length === 0; 
+    }
+
+    console.log(checkBrackets("function someFn() { return [1, 2, 3]; }")); 
+    console.log(checkBrackets("function someFn( { return [1, 2, 3]; }"));  
+                </code></pre>
+                <br>
+                Результат виконання: <br>
+                <img src="LB6_6.png" alt="Фото"><br>`,
+
+
+
+
+
+
+
+
+
+
+
+
+
+                'Висновки':` У цій лабораторній роботі ми навчилися працювати з об'єктами, методами об'єктів, масивами об'єктів та деструктуризацією в JavaScript. Також отримали практичні навички використання callback-функцій і стрілочних функцій, зокрема як колбеків. Ми реалізовували різні завдання: створення та маніпуляцію об'єктами, обробку масивів, застосування знижок і підрахунок даних, що допомогло закріпити знання та практичні навички в роботі з об'єктами і функціями в JavaScript.`,
+
+                }
+
             
         };
 
