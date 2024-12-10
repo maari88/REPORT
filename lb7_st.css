@@ -1,0 +1,30 @@
+.taskTitle {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+#place {
+    width: 200px;
+    height: 100px;
+    background-color: green;
+    border: 2px solid black;
+}
+
+
+body {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    text-align: center; 
+    min-height: 100vh; 
+    margin: 0; 
+  }
+  
+ 
+  ul {
+    list-style-position: inside; 
+    padding: 0; 
+    margin: 0 auto; 
+  }
+  
