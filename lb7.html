@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="lb7_st.css">
+    <script src="lb7_sc.js"></script>
+    <title>Лабораторна 7</title>
+</head>
+<body>
+    <header><h1>Лабораторна робота №7</h1></header>
+    <main>
+        <h1>Завдання №1</h1>
+        <input type="text" id="inputField"placeholder='Введіть текст, який відобразиться у консолі'>
+        <button onclick="consoleMessage()">Показати</button>
+
+        <h1>Завдання №3</h1>
+        <input type="text" id="passwordField"placeholder='Введіть текст'>
+        <button id="toggleButton" onclick="passwordMessage()">Приховати</button>
+
+        <h1>Завдання №5</h1>
+        <p class="taskTitle">Клікніть на прямокутник або поза ним</p>
+        <div id="place"></div>
+
+        <h1>Завдання №7</h1><ul id="categories">
+            <li class="item">
+              <h2>Animals</h2>
+              <ul>
+                <li>Cat</li>
+                <li>Hamster</li>
+                <li>Horse</li>
+                <li>Parrot</li>
+              </ul>
+            </li>
+            <li class="item">
+              <h2>Products</h2>
+              <ul>
+                <li>Bread</li>
+                <li>Prasley</li>
+                <li>Cheese</li>
+              </ul>
+            </li>
+            <li class="item">
+              <h2>Technologies</h2>
+              <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>React</li>
+                <li>Node.js</li>
+              </ul>
+            </li>
+          </ul>
+
+
+
+        <h1>Завдання №8</h1>
+        <form class="login-form">
+            <label>
+              Email
+              <input type="email" name="email" />
+            </label>
+            <label>
+              Password
+              <input type="password" name="password" />
+            </label>
+            <button type="submit">Log in</button>
+        </form>
+
+
+        <h1>Завдання №9</h1>
+        <div class="widget">
+            <p>Background color: <span class="color">-</span></p>
+            <button type="button" class="change-color">Change color</button>
+          </div>
+          
+
+
+        <h1>Завдання №10</h1>
+        <div id="controls">
+            <input type="number" min="1" max="100" step="1" />
+            <button type="button" data-create>Create</button>
+            <button type="button" data-destroy>Destroy</button>
+          </div>
+          
+          <div id="boxes"></div>
+    </main>
+    <footer></footer>
+</body>
+</html>
