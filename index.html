@@ -2014,7 +2014,250 @@ console.log("Масив після сортування:", sortedArray);
 
                 'Висновки':` У цій лабораторній роботі ми навчилися працювати з об'єктами, методами об'єктів, масивами об'єктів та деструктуризацією в JavaScript. Також отримали практичні навички використання callback-функцій і стрілочних функцій, зокрема як колбеків. Ми реалізовували різні завдання: створення та маніпуляцію об'єктами, обробку масивів, застосування знижок і підрахунок даних, що допомогло закріпити знання та практичні навички в роботі з об'єктами і функціями в JavaScript.`,
 
-                }
+                },
+         7: {
+                'Тема, мета, місцерозташування сайту, звіту': `<b>Тема:  КЛАСИ. ОБ'ЄКТНА МОДЕЛЬ ДОКУМЕНТА (DOM). ПОДІЇ. ОБ'ЄКТ ПОДІЇ. ДЕЛЕГУВАННЯ ПОДІЙ. 
+                    </b> <br>
+ 
+Мета: придбати практичні навички роботи з об'єктами. Методи об'єкта.. Callback. Стрілочні функції. Стрілочні функції як колбеки​.
+.  Реалізація програм засовами мови JAVASCRIPT
+<br><b>Місцерозсташування:</b> <a href = "https://maari88.github.io/WEB_PROJECT/">Перейти до веб-застосунку</a> <br>
+<a href = "https://github.com/maari88/WEB_PROJECT">Перейти до репозиторію веб-застосунку</a> <br>
+<a href = "lb7.html">Перейти до лабораторної роботи</a> <br>`,
+
+
+
+
+                'Завдання №1': ` 
+                <pre><code>
+                    function consoleMessage(){
+    var inputText = document.getElementById('inputField').value;
+    console.log("Було введено: {inputText});
+}
+                </code></pre>
+                <br>
+                Результат виконання: <br>
+                <img src="LB7_1.1.png" alt="Фото"><br>
+                <img src="LB7_1.2.png" alt="Фото"><br>`,
+
+
+
+
+
+
+
+                'Завдання №3': ` <pre><code>
+                    function passwordMessage(){
+    var inputText = document.getElementById('passwordField');
+    var buttonText = document.getElementById('toggleButton');
+
+    if(inputText.type === "text"){
+    inputText.type = "password";
+    buttonText.textContent = "Розкрити";} 
+    else {
+    inputText.type = "text";
+    buttonText.textContent = "Приховати";
+    }
+}
+                </code></pre>
+                <br>
+                Результат виконання: <br>
+                <img src="LB7_2.1.png" alt="Фото"><br>
+                <img src="LB7_2.2.png" alt="Фото"><br>  `,
+
+
+
+
+
+
+
+
+
+                'Завдання №5': ` <pre><code>
+                    window.addEventListener('click', (event) => {
+    const clicked = event.target.id === 'place';
+    console.log(clicked);
+});
+                </code></pre>
+                <br>
+                Результат виконання: <br>
+                <img src="LB7_5.1.png" alt="Фото"><br> 
+                <img src="LB7_5.2.png" alt="Фото"><br>`,
+
+
+
+
+
+
+
+
+
+                'Завдання №7': ` <pre><code>
+                    document.addEventListener('DOMContentLoaded', () => {
+    const categoriesList = document.querySelectorAll('#categories > .item');
+    console.log('Кількість елементів у списку: {categoriesList.length}'');
+
+    categoriesList.forEach(category => {
+        const title = category.querySelector('h2').textContent;
+        const itemCount = category.querySelectorAll('ul > li').length;
+
+        console.log('Назва категорії: {title}');
+        console.log('Кількість елементів: {itemCount}');
+    });
+});
+                </code></pre>
+                <br>
+                Результат виконання: <br>
+                <img src="LB7_7.1.png" alt="Фото"><br>
+                <img src="LB7_7.2.png" alt="Фото"><br> `,
+
+
+
+
+
+
+
+
+
+
+                'Завдання №8': ` <pre><code>
+                    document.addEventListener('DOMContentLoaded', () => {
+    const loginForm = document.querySelector('.login-form');
+
+    loginForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const {email, password} = loginForm.elements;
+
+        if(email.value.trim() === '' || password.value.trim() === ''){
+            alert('All form fields must be filled in');
+            return;
+        }
+
+        const formData = {
+            email: email.value.trim(),
+            password: password.value.trim()
+        }
+
+        console.log(formData);
+
+        loginForm.reset();
+    } );
+});
+                </code></pre>
+                <br>
+                Результат виконання: <br>
+                <img src="LB7_8.1.png" alt="Фото"><br>
+                <img src="LB7_8.2.png" alt="Фото"><br> `,
+
+
+
+
+
+
+
+                'Завдання №9': ` <pre><code>
+                    document.addEventListener('DOMContentLoaded', () => {
+function getRandomHexColor() {
+    return '#{Math.floor(Math.random() * 16777215)
+      .toString(16)
+      .padStart(6, 0)}';
+  }
+
+
+  const body = document.body;
+  const colorSpan = document.querySelector('.color');
+  const changeColorButton = document.querySelector('.change-color');
+
+  changeColorButton.addEventListener('click', () => {
+    const randomColor = getRandomHexColor();
+    body.style.backgroundColor = randomColor;
+    colorSpan.textContent = randomColor;
+
+  });
+});
+                </code></pre>
+                <br>
+                Результат виконання: <br>
+                <img src="LB7_9.png" alt="Фото"><br> `,
+
+
+
+
+
+
+
+
+
+
+                'Завдання №10': ` <pre><code>
+                    document.addEventListener('DOMContentLoaded', () => {
+const controls = document.getElementById('controls');
+const input = controls.querySelector('input');
+const createButton = controls.querySelector('[data-create]');
+const destroyButton = controls.querySelector('[data-destroy]');
+const boxesContainer = document.getElementById('boxes');
+
+function getRandomHexColor() {
+    return #{Math.floor(Math.random() * 16777215)
+      .toString(16)
+      .padStart(6, 0)};
+  }
+
+
+function createBoxes(amount){
+    boxesContainer.innerHTML = '';
+
+    let size = 30;
+    const fragment = document.createDocumentFragment();
+
+    for(let i = 0; i < amount; i++){
+        const box = document.createElement('div');
+        box.style.width = {size}px;
+        box.style.height = {size}px;
+        box.style.backgroundColor = getRandomHexColor();
+        box.style.margin = '5px';
+        fragment.appendChild(box);
+        size += 10 ;
+    }
+    boxesContainer.appendChild(fragment);
+}
+
+function destroyBoxes() {
+    boxesContainer.innerHTML = '';
+  }
+
+
+createButton.addEventListener('click', () => {
+    const amount = Number(input.value);
+
+    if (amount >= 1 && amount <= 100){
+        createBoxes(amount);
+        input.value = '';
+    }else {
+        alert('Please enter a number between 1 and 100.');
+      }
+});
+
+destroyButton.addEventListener('click', destroyBoxes);
+});
+                </code></pre>
+                <br>
+                Результат виконання: <br>
+                <img src="LB7_10.1.png" alt="Фото"><br>
+                <img src="LB7_10.2.png" alt="Фото"><br> `,
+
+
+
+
+
+
+
+
+
+                'Висновки': `На лабораторній роботі ми набули практичних навичок роботи з об’єктною моделлю документа (DOM), вивчили основні методи роботи з елементами сторінки та подіями. Ми реалізували програму, що демонструє застосування колбеків і стрілочних функцій, закріпили знання про делегування подій, а також навчилися ефективно працювати з об’єктами подій у JavaScript. Лабораторна робота дала змогу поглибити розуміння об'єктно-орієнтованого підходу в програмуванні, підвищити рівень володіння JavaScript і закріпити основи 
+                створення інтерактивних веб-інтерфейсів. `,
+
+         }
 
             
         };
