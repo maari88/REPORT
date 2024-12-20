@@ -2257,6 +2257,203 @@ destroyButton.addEventListener('click', destroyBoxes);
                 'Висновки': `На лабораторній роботі ми набули практичних навичок роботи з об’єктною моделлю документа (DOM), вивчили основні методи роботи з елементами сторінки та подіями. Ми реалізували програму, що демонструє застосування колбеків і стрілочних функцій, закріпили знання про делегування подій, а також навчилися ефективно працювати з об’єктами подій у JavaScript. Лабораторна робота дала змогу поглибити розуміння об'єктно-орієнтованого підходу в програмуванні, підвищити рівень володіння JavaScript і закріпити основи 
                 створення інтерактивних веб-інтерфейсів. `,
 
+         },
+         8: {
+            'Тема, мета, місцерозташування сайту, звіту': `<b>Тема:  WEB-СХОВИЩЕ. WEB STORAGE API. МОДУЛЬНОСТЬ  КОДУ. СТВОРЕННЯ МОДАЛЬНОГО ВІКНА. ДЕЛЕГУВАННЯ ПОДІЙ. 
+                    </b> <br>
+ 
+Мета:  придбати практичні навички роботи створення модального вікна; повторити процес створення макету, зокрема створення макету галереї довільних зображень; закріпити навички роботи з делегуванням подій.
+<br><b>Місцерозсташування:</b> <a href = "https://maari88.github.io/WEB_PROJECT/">Перейти до веб-застосунку</a> <br>
+<a href = "https://github.com/maari88/WEB_PROJECT">Перейти до репозиторію веб-застосунку</a> <br>
+<a href = "https://maari88.github.io/LB8/">Перейти до лабораторної роботи</a> <br>
+<a href = "https://github.com/maari88/LB8">Перейти до репозиторію лабораторної роботи</a> <br>`,
+
+
+
+
+'Макети Figma': ` <p>Макет галереї зображень: </p><br>
+ <img src="LB8_0.png" alt="Фото"><br> `,
+
+
+
+
+
+'Галерея зображень': `<p>Вигляд галереї зображень: </p><br>
+ <img src="LB8_1.png" alt="Фото"><br>
+ <p>Лістинг JS коду: </p><br>
+ <pre><code>
+    const images = [
+  {
+    preview: 'https://via.placeholder.com/150/FF5733',
+    original: 'https://via.placeholder.com/600/FF5733',
+    description: 'Картинка 1: Помаранчевий відтінок',
+  },
+  {
+    preview: 'https://via.placeholder.com/150/33FFBD',
+    original: 'https://via.placeholder.com/600/33FFBD',
+    description: 'Картинка 2: Бірюзовий відтінок',
+  },
+  {
+    preview: 'https://via.placeholder.com/150/FF33E3',
+    original: 'https://via.placeholder.com/600/FF33E3',
+    description: 'Картинка 3: Рожевий відтінок',
+  },
+  {
+    preview: 'https://via.placeholder.com/150/33A1FF',
+    original: 'https://via.placeholder.com/600/33A1FF',
+    description: 'Картинка 4: Блакитний відтінок',
+  },
+  {
+    preview: 'https://via.placeholder.com/150/FFC733',
+    original: 'https://via.placeholder.com/600/FFC733',
+    description: 'Картинка 5: Жовтий відтінок',
+  },
+  {
+    preview: 'https://via.placeholder.com/150/75FF33',
+    original: 'https://via.placeholder.com/600/75FF33',
+    description: 'Картинка 6: Зелений відтінок',
+  },
+  {
+    preview: 'https://via.placeholder.com/150/FF3333',
+    original: 'https://via.placeholder.com/600/FF3333',
+    description: 'Картинка 7: Червоний відтінок',
+  },
+  {
+    preview: 'https://via.placeholder.com/150/33A1FF',
+    original: 'https://via.placeholder.com/600/33A1FF',
+    description: 'Картинка 4: Блакитний відтінок',
+  },
+  {
+    preview: 'https://via.placeholder.com/150/FFC733',
+    original: 'https://via.placeholder.com/600/FFC733',
+    description: 'Картинка 5: Жовтий відтінок',
+  },
+  {
+    preview: 'https://via.placeholder.com/150/75FF33',
+    original: 'https://via.placeholder.com/600/75FF33',
+    description: 'Картинка 6: Зелений відтінок',
+  },
+  {
+    preview: 'https://via.placeholder.com/150/33FFBD',
+    original: 'https://via.placeholder.com/600/33FFBD',
+    description: 'Картинка 2: Бірюзовий відтінок',
+  },
+  {
+    preview: 'https://via.placeholder.com/150/FF33E3',
+    original: 'https://via.placeholder.com/600/FF33E3',
+    description: 'Картинка 3: Рожевий відтінок',
+  },
+  {
+    preview: 'https://via.placeholder.com/150/33A1FF',
+    original: 'https://via.placeholder.com/600/33A1FF',
+    description: 'Картинка 4: Блакитний відтінок',
+  },
+];
+ const galleryContainer = document.querySelector('.gallery');
+
+  const galleryMarkup = images.map(({preview, original, description}) => {
+    
+  }).join('');
+
+  galleryContainer.insertAdjacentHTML('beforeend', galleryMarkup);
+
+// Делегування подій: обробка кліка по галереї
+galleryContainer.addEventListener('click', onGalleryClick);
+
+function onGalleryClick(event) {
+  event.preventDefault();
+
+  // Перевіряємо, чи клік був по зображенню
+  const target = event.target;
+  if (!target.classList.contains('gallery-image')) {
+    return;
+  }
+
+  const largeImageURL = target.dataset.source; // Отримуємо посилання на велике зображення
+  console.log('Посилання на велике зображення:', largeImageURL);
+
+  // Відкриваємо модальне вікно з бібліотекою basicLightbox
+  const instance = basicLightbox.create
+
+    </code>
+    </pre>`,
+
+
+
+
+
+
+
+'Форма': `<p>Вигляд форми: </p><br>
+ <img src="LB8_2.1.png" alt="Фото"><br>
+ <p>Результат у консолі:</p><br>
+ <img src="LB8_2.2.png" alt="Фото"><br>
+ <p>Лістинг JS коду: </p><br>
+ <pre><code>
+    const formData = { email:"", message: ""};
+const form = document.querySelector(".feedback-form");
+const STORAGE_KEY = "feedback-form-state";
+
+// 1. Завантаження збережених даних при завантаженні сторінки
+window.addEventListener("DOMContentLoaded", () => {
+    const savedData = localStorage.getItem(STORAGE_KEY);
+
+    if(savedData){
+        const parsedData = JSON.parse(savedData);
+        formData.email = parsedData.email || "";
+        formData.message =  parsedData.message || "";
+
+        form.elements.email.value = formData.email;
+        form.elements.message.value = formData.message;
+    }
+});
+
+// 2. Відстеження змін у формі через подію input
+form.addEventListener("input", (event) => {
+    const {name, value} =  event.target;
+
+  if (name in formData) {
+    formData[name] = value;
+
+    
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
+  }
+});
+
+// 3. Обробка відправлення форми
+form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    if (!formData.email || !formData.message) {
+        alert("Fill please all fields");
+        return;
+    }
+
+
+    var stringDataEm = formData.email;
+    var stringDataMa = formData.message;
+    console.log(Введені дані: {stringDataEm} {stringDataMa});
+    localStorage.removeItem(STORAGE_KEY);
+
+    formData.email = "";
+    formData.message = "";
+    form.reset();
+});
+    </code>
+    </pre>`,
+
+
+
+
+
+
+
+
+
+'Висновки': `Ця робота дозволила опанувати важливі практичні навички, які є основою сучасної розробки інтерфейсів. Виконані завдання сприяли кращому розумінню роботи з Web Storage API, модульності коду, створення модального вікна, динамічної побудови інтерфейсу за допомогою JavaScript, а також використанню бібліотек для спрощення реалізації складних елементів UI. Делегування подій та збереження даних у локальне сховище додатково закріпили вміння працювати з подіями та оптимізувати взаємодію з користувачем. Реалізація цих функцій 
+забезпечила створення зручного, інтерактивного інтерфейсу, що відповідає сучасним стандартам веб-розробки.`,
+
+
          }
 
             
